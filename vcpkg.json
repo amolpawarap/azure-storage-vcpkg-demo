@@ -1,0 +1,6 @@
+{
+  "name": "azure_storage_demo",
+  "dependencies": [
+    "azure-storage-blobs-cpp"
+  ]
+}

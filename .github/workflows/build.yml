@@ -1,0 +1,42 @@
+name: Build azure_storage_demo project on RH9
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [rh9]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up build environment
+      run: |
+
+    - name: Set up build environment
+      run: |
+        if [ "$os" == "rh9" ]; then
+          sudo dnf install -y nano git curl make cmake pkgconfig gcc-c++ glibc-headers
+          sudo dnf install -y libcurl-devel openssl-devel libxml2-devel
+        else
+          sudo apt-get update
+          sudo apt-get install -y nano git curl make cmake pkg-config g++ linux-libc-dev
+          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev
+        fi
+
+    - name: Build C++ project
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make
+
