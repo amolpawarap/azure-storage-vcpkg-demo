@@ -1,0 +1,1 @@
+# azure-storage-vcpkg-demo
